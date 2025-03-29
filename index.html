@@ -1,71 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cricket Info</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; color: #333; }
-    header { background: #0275d8; color: white; padding: 1rem 2rem; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 2rem; }
-    h1, h2 { color: #0275d8; }
-    footer { background: #222; color: white; text-align: center; padding: 1rem; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Cricket Info</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
-  <header>
-    <h1>Cricket Info</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#players">Players</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Cricket Info</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#news">News</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#players">Players</a>
+        </nav>
+    </header>
 
-  <section id="home">
-    <h2>Welcome to Cricket Info</h2>
-    <p>Your go-to source for cricket updates, match schedules, and player stats.</p>
-  </section>
+    <section id="news">
+        <h2>Latest News</h2>
+        <ul>
+            <li th:each="item : ${news}" th:text="${item}"></li>
+        </ul>
+    </section>
 
-  <section id="news">
-    <h2>Latest News</h2>
-    <ul>
-      <li>India defeats Australia in a thrilling ODI match!</li>
-      <li>Virat Kohli scores a century in the T20 series.</li>
-      <li>ICC announces new World Cup format for 2027.</li>
-    </ul>
-  </section>
+    <section id="schedule">
+        <h2>Upcoming Matches</h2>
+        <ul>
+            <li th:each="item : ${schedule}" th:text="${item}"></li>
+        </ul>
+    </section>
 
-  <section id="schedule">
-    <h2>Upcoming Matches</h2>
-    <ul>
-      <li>India vs England - Apr 5, 2025</li>
-      <li>Pakistan vs Australia - Apr 10, 2025</li>
-      <li>New Zealand vs South Africa - Apr 12, 2025</li>
-    </ul>
-  </section>
+    <section id="players">
+        <h2>Top Players</h2>
+        <ul>
+            <li th:each="player : ${players}" th:text="${player}"></li>
+        </ul>
+    </section>
 
-  <section id="players">
-    <h2>Top Players</h2>
-    <ul>
-      <li>Virat Kohli (India)</li>
-      <li>Babar Azam (Pakistan)</li>
-      <li>Kane Williamson (New Zealand)</li>
-      <li>Steve Smith (Australia)</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@cricketinfo.com</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Cricket Info. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Cricket Info</p>
+    </footer>
 </body>
 </html>
